@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a href="/App/catelogue/new/">New Catelogue</a>
+    <h3>Catelogues</h3>
+     {%  for i in object_list %}
+       <a href="/App/catelogue/{{ i.id }}">{{ i.id }}.{{ i.name }}</a>
+         <!--<li> {{ i.id }}   -   {{ i.name }}</li> -->
+         <br />
+    {% endfor %}
+
+</body>
+</html>
