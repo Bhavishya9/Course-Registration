@@ -1,2 +1,2 @@
 1. move show_cat and new_cat to a different module.
-2. modify studentsviews
+2. modify studentsview
