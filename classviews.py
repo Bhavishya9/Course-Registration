@@ -3,10 +3,10 @@ from django.views.generic import DetailView
 from App.forms import *
 
 
-class catelogueListView(ListView):
+class professorview(ListView):
     model=Catelogue
     def get_context_data(self, **kwargs):
-        context = super(catelogueListView, self).get_context_data(**kwargs)
+        context = super(professorview, self).get_context_data(**kwargs)
         return context
 
 class catelogueDetailView(DetailView):

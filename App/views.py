@@ -39,9 +39,6 @@ def studentview(request):
     cats=Catelogue.objects.filter(branch__in=stu.values_list('dept',flat=True))
     render(request, 'app/student_page.html', cats.keys())
 
-def professorview(request):
-    return HttpResponse("It paid off finally !! :'D")
-
 def confirm(request):
     template = loader.get_template('successful.html')
     return HttpResponse(template.render(None))
