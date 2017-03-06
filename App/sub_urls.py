@@ -15,6 +15,7 @@ urlpatterns=[
                 url(r'^studentpage/$',views.studentview),
                 url(r'^professorpage/$',classviews.professorview.as_view(),name="cats_list"),
                 url(r'^catelogue/(?P<pk>[0-9]+)/$',classviews.catelogueDetailView.as_view(),name="courses_list"),
+                url(r'^catelogue/(?P<pk>[0-9]+)/courses/$', classviews.studentCatelogueDetailView.as_view(), name="student_courses"),
                 url(r'^catelogue/new/$',views.newCat,name="new_cat"),
                 url(r'catelogue/course/(?P<pk>[0-9]+)/new/$',views.courseCreate,name="new_course"),
 ]

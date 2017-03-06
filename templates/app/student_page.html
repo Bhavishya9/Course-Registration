@@ -6,8 +6,8 @@
 </head>
 <body>
     <ol>
-        {% for cat in cats %}
-            <li>{{ cat.name }}</li>
+        {% for cat in catlist %}
+            <li> <a href="/App/catelogue/{{ cat.id }}/courses/">{{ cat.name }}</a></li>
         {% endfor %}
     </ol>
 </body>

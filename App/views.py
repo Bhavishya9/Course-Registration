@@ -35,9 +35,9 @@ def adminview(request):
 #     render(request,'app/student_page.html',cats)
 
 def studentview(request):
-    stu=Student.objects.filter(user=request.user)
-    cats=Catelogue.objects.filter(branch__in=stu.values_list('dept',flat=True))
-    render(request, 'app/student_page.html', cats.keys())
+    stu=Student.objects.get(user=request.user)
+    cats=Catelogue.objects.filter(branch=stu.dept)
+    return render(request, 'app/student_page.html', {'catlist' : cats})
 
 def confirm(request):
     template = loader.get_template('successful.html')

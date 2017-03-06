@@ -18,3 +18,14 @@ class catelogueDetailView(DetailView):
             return Catelogue.objects.get(name=name)
         else:
             return Catelogue.objects.get(pk=self.kwargs["pk"])
+
+class studentCatelogueDetailView(DetailView):
+    model=Catelogue
+    context_object_name = "cat_detail"
+    template_name = 'app/student_view_of_catelogue.html'
+    def get_object(self, queryset=None):
+        name=self.kwargs.get('name')
+        if name:
+            return Catelogue.objects.get(name=name)
+        else:
+            return Catelogue.objects.get(pk=self.kwargs["pk"])

@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Courses</title>
 </head>
 <body>
-$END$
+    <h3>Courses</h3>
+    <ol type="1">
+    {% for i in cat_detail.course_set.all%}
+        <li>{{ i.name }}</li>
+    {% endfor %}
+    </ol>
 </body>
 </html>
