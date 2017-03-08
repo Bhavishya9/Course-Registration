@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.template import Context
+from django.shortcuts import render,render_to_response
+from django.template import Context,RequestContext
 from django.http import HttpResponse
 from django.template import loader
 from django.http import HttpResponseRedirect
@@ -117,3 +117,18 @@ def courseCreate(request, pk):
                 return HttpResponseRedirect('/App/catelogue/course/'+str(pk)+'/new/')
     return render(request, 'app/course_form.html', {'form': courseform})
 
+def add_vote(request,pk):
+    catelogue=Catelogue.objects.get(id=pk)
+    course=Course.objects.filter(cat=pk)
+    if request.method=='POST':
+        vote=request.POST.get('course')
+        c=Course.objects.get(id=vote)
+        v=Choice(catelogue=catelogue,course=c)
+        v.save()
+        return HttpResponseRedirect('/App/catelogue/votesuccesful/')
+    return render_to_response('app/student_view_of_catelogue.html',{'course':course,'cat':catelogue},context_instance=RequestContext(request))
+
+
+def success(request):
+    template = loader.get_template('app/vote_successful.html')
+    return HttpResponse(template.render(None))
