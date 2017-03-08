@@ -26,14 +26,6 @@ def adminview(request):
     template=loader.get_template('adminspage.html')
     return HttpResponse(template.render(None))
 
-#
-# def studentview(request):
-#     #return HttpResponse("You made it !!! :D")
-#     current_student=Student.objects.get(user=request.user)
-#     #bran=current_student.objects.get('branch')
-#     cats=Catelogue.objects.all().filter(branch=current_student.dept)
-#     render(request,'app/student_page.html',cats)
-
 def studentview(request):
     stu=Student.objects.get(user=request.user)
     cats=Catelogue.objects.filter(branch=stu.dept)
@@ -64,7 +56,7 @@ def addprofessor(request,new_user):
         if facultyform.is_valid():
             data=facultyform.cleaned_data
             new_user1=User.objects.get(id=new_user)
-            new_user1.groups.add(Group.objects.get(name='professsor'))
+            new_user1.groups.add(Group.objects.get(name='professor'))
             new_faculty = Faculty(name=data['name'], pin=data['pin'],dept=data['dept'],user=new_user1)
             new_faculty.save()
             return HttpResponseRedirect('/App/successful/')
@@ -95,7 +87,7 @@ def newCat(request):
             catform = CatelogueForm(request.POST or None)
             if catform.is_valid():
                 data = catform.cleaned_data
-                cat = Catelogue(name=data['name'], branch=data['name'], created_date=data['created_date'])
+                cat = Catelogue(name=data['name'], branch=data['branch'], created_date=data['created_date'])
                 cat.save()
                 return HttpResponseRedirect('/App/catelogue/' + str(cat.id) + '/')
         return render(request, 'app/catelogue_form.html', {'form': catform})
@@ -122,13 +114,18 @@ def add_vote(request,pk):
     course=Course.objects.filter(cat=pk)
     if request.method=='POST':
         vote=request.POST.get('course')
-        c=Course.objects.get(id=vote)
-        v=Choice(catelogue=catelogue,course=c)
-        v.save()
-        return HttpResponseRedirect('/App/catelogue/votesuccesful/')
+        if Choice.objects.filter(catelogue_id=pk,user=request.user).exists():
+            return HttpResponseRedirect('/App/catelogue/oops/')
+        else:
+            c=Course.objects.get(id=vote)
+            v=Choice(catelogue=catelogue,course=c,user=request.user)
+            v.save()
+            return HttpResponseRedirect('/App/catelogue/votesuccesful/')
     return render_to_response('app/student_view_of_catelogue.html',{'course':course,'cat':catelogue},context_instance=RequestContext(request))
-
 
 def success(request):
     template = loader.get_template('app/vote_successful.html')
     return HttpResponse(template.render(None))
+
+def oops(request):
+    return HttpResponse("You already voted honey!")

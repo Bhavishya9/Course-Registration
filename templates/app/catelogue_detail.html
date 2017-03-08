@@ -5,13 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-    <a href="/App/catelogue/course/{{ cat_detail.id }}/new/">New Course</a>
+    <a href="/App/catelogue/course/{{ cat.id }}/new/">New Course</a>
     <h3>Courses</h3>
-    <ol type="1">
-    {% for i in cat_detail.course_set.all%}
-        <li>{{ i.name }}</li>
-    {% endfor %}
+    <p>The results</p>
+    <ol>
+        {% for course in courses %}
+            <li>  {{ course.name }}-{{ course.choice_set.count }} </li>
+        {% endfor %}
     </ol>
-
 </body>
 </html>

@@ -48,6 +48,6 @@ class Faculty(models.Model):
 class Choice(models.Model):
     catelogue=models.ForeignKey(Catelogue)
     course=models.ForeignKey(Course)
-    votes=models.IntegerField(default=0)
+    user=models.ForeignKey(User)
 
 #Catelogue.courses.through.__unicode__= lambda x:x.course.name
