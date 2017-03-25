@@ -34,4 +34,5 @@ class CourseForm(ModelForm):
 class CatelogueForm(ModelForm):
     class Meta:
         model=Catelogue
-        fields=('name','branch','created_date')
+        fields=('name','branch')
+        exclude=('created_date',)

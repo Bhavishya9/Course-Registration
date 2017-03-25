@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load staticfiles %}
 <head>
     <meta charset="UTF-8">
     <title>User Page</title>
+    <link href="{% static 'css/adduser.css' %}" rel="stylesheet">
 </head>
 <body>
-    <form action="" method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="create" />
-    </form>
-
+   <div class="login">
+        <h1>User Details</h1>
+        <form method="post" action="">
+            {% csrf_token %}
+    	    <input type="text" name="username" placeholder="Username" required="" value="{{ username }}" />
+            <input type="password" name="password" placeholder="Password" required="" value="{{ password }}"/>
+            <input type="email" name="email" placeholder="Email" required="" value="{{ email }}">
+            <input type="submit" class="btn btn-primary btn-block btn-large" value="Create">
+        </form>
+    </div>
 </body>
 </html>

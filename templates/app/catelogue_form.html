@@ -1,13 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+{% load staticfiles %}
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>New Catalogue</title>
+  <link rel="stylesheet" href="{% static 'css/cat_form.css' %}">
+  <script type="text/javascript" src="{% static 'js/cat_form.js' %}"></script>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
 </head>
+
 <body>
-    <form action="" method="post">
-        {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save" />
+  <div class="wrapper">
+	<div class="container">
+		<h1 style="color: white;font-weight: 300;font-family: 'Source Sans Pro', sans-serif">Catalogue Details</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+              <div class="control-group">
+                        <div class="controls">
+                           <input type="text" class="span3" name="name" id="name" placeholder="Catalogue name" required="" value="{{ name }}">
+                        </div>
+              </div>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="span3" name="branch" id="branch" placeholder="Branch" required="" value="{{ branch }}">
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="submit" value="Save" />
+                </div>
+            </div>
+
+        </form>
+	</div>
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
 </body>
 </html>

@@ -1,0 +1,137 @@
+    .top { background-color:#4c5a8e !important; height:30px;  width:1280px; }
+    .header {  height:100px;  width:100%; }
+    .header h3{ padding:10px;  font-size:35px; font-weight:normal;}
+    .header h4 { padding:0 10px;}
+    .header .title {  padding:20px; width:auto; float:left;  color:#791c26; font-family: 'Sansita', sans-serif; !important;}
+    .header .logo {  padding:20px; width:300px; float:right;}
+    .header .logo img { width:100%;}
+    .single-sign { width:370px; margin:100px auto 30px; text-align:center;}
+    .single-sign input { position:relative; padding-left:30px;}
+    .single-sign input[type="submit"] {  padding-left:12px;}
+    .single-sign  .rdio { text-align:center; margin:20px auto 40px;}
+    #wrapper-login { display:none;}
+
+ label, input, button, select, textarea, placeholder, .login form input {
+        font-family: 'Handlee', cursive;
+        font-weight: 500;
+        font-size: 20px;
+        color: #99bac8 !important;
+      }
+      
+       input::-webkit-input-placeholder {
+       display: none;
+      }
+      
+      .back-to-site {
+        margin-top: 15px;
+        color: #99bac8 !important;
+        text-decoration: none;
+        font-size: 12px;
+      }
+      .left-arrow-icon {
+        margin-right: 5px;
+        padding-bottom: 3px;
+      }
+      
+input[type="text"], input[type="password"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+      -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  width: 100%;
+  height: -webkit-calc(3em + 2px);
+  height: calc(3em + 2px);
+  margin: 0 0 1em;
+  padding: 1em;
+  border: 2px solid #99bac8;
+  border-style: solid;
+  border-radius: .4em;
+  background: none;
+  resize: none;
+  outline: none;
+}
+input[type="text"][required]:focus, input[type="password"][required]:focus {
+  border-color: #2fa7dd;
+}
+input[type="text"][required]:focus + label[placeholder]:before, input[type="password"][required]:focus + label[placeholder]:before {
+  color: #2fa7dd;
+}
+input[type="text"][required]:focus + label[placeholder]:before,
+input[type="text"][required]:valid + label[placeholder]:before, input[type="password"][required]:focus + label[placeholder]:before,
+input[type="password"][required]:valid + label[placeholder]:before {
+  -webkit-transition-duration: .2s;
+  transition-duration: .2s;
+  -webkit-transform: translate(0, -1.5em) scale(0.9, 0.9);
+  -ms-transform: translate(0, -1.5em) scale(0.9, 0.9);
+  transform: translate(0, -1.5em) scale(0.9, 0.9);
+}
+input[type="text"][required]:invalid + label[placeholder][alt]:before {
+  content: attr(alt);
+}
+input[type="text"][required] + label[placeholder], input[type="password"][required] + label[placeholder] {
+  display: block;
+  pointer-events: none;
+  line-height: 1em;
+  margin-top: -webkit-calc(-3em - 2px);
+  margin-top: calc(-3em - 2px);
+  margin-bottom: -webkit-calc((3em - 1em) + 2px);
+  margin-bottom: calc((3em - 1em) + 2px);
+}
+input[type="text"][required] + label[placeholder]:before, input[type="password"][required] + label[placeholder]:before {
+  content: attr(placeholder);
+  display: inline-block;
+  margin: 0 -webkit-calc(1em + 2px);
+  margin: 0 calc(1em + 2px);
+  padding: 0 2px;
+  color: #99bac8;
+  white-space: nowrap;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff));
+  background-image: -webkit-linear-gradient(top, #ffffff, #ffffff);
+  background-image: linear-gradient(to bottom, #ffffff, #ffffff);
+  -webkit-background-size: 100% 5px;
+  background-size: 100% 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+input[type=submit] {
+    cursor: pointer;
+}
+
+.btn {
+	border: none;
+  font-size: 18px;
+	color: #fff !important;
+	background: #2fa7dd;
+	cursor: pointer;
+	display: block;
+	font-weight: 700;
+	position: relative;
+  outline: none;
+  border-radius: 5px;
+  margin: 80px auto 0px;
+  font-weight: 500;
+  padding: 20px 110px 20px 110px;
+}
+
+a.center-text, #login > div.controls > a {
+	text-align: center;
+  display: block;
+  text-decoration: none;
+  color: #99bac8;
+  margin-bottom: 20px;
+}
+
+.form {
+	margin: 0px auto;
+  display: block;
+  width: 480px;
+}
+
+#footer { height:50px; background-color:#4c5a8e !important;   width:100%;  }
+
+.footer-home { position:fixed; bottom:0;}

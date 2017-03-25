@@ -1,0 +1,11 @@
+ .top { background-color:#4c5a8e !important; height:30px;  width:100%; }
+ .header {  height:100px;  width:100%; }
+ .header h3{ padding:10px;  font-size:35px; font-weight:normal;}
+ .header h4 { padding:0 10px;}
+ .header .title {  padding:20px; width:auto; float:right;  color:#791c26; font-family: 'Sansita', sans-serif; !important;}
+ .header .logo {  padding:20px; width:300px; float:left;}
+ .header .logo img { width:100%;}
+ .breadcrumb{  margin-top: 20px; padding-top: 10px;  padding-bottom: 10px;}
+ .nav-tabs > li.active > a:focus {color:#4682B4}
+ #exTab2 .tab-content {  color : black;  padding : 5px 15px;  }
+ #exTab2 h3 {  color : white;  background-color: #428bca;  padding : 5px 15px; }

@@ -1,14 +1,53 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Student Page</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Sansita|Alegreya|Roboto+Slab" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/student_homepage.css' %}">
 </head>
 <body>
-    <ol>
-        {% for cat in catlist %}
-            <li> <a href="/App/catelogue/{{ cat.id }}/courses/">{{ cat.name }}</a></li>
-        {% endfor %}
-    </ol>
+    <div class="container">
+        <div class="top"></div>
+        <div class="header">
+            <h3 class="title">Logout</h3>
+            <div class="logo">
+                <img src="{% static 'images/gitam-logo.jpg' %}">
+            </div>
+        </div>
+        <ol class="breadcrumb">
+            <li>  <a class="breadcrumb-item" href="/">Home</a> </li>
+            <li><span class="breadcrumb-item active">Student</span></li>
+        </ol>
+        <div id="exTab2" class="container">
+            <ul class="nav nav-tabs">
+			    <li class="active">
+                    <a  href="#1" data-toggle="tab" style="font-family: 'Alegreya', serif;font-size: 17pt">Course Catalogues</a>
+                </li>
+			    <li>
+                    <a href="#2" data-toggle="tab" style="font-family: 'Alegreya', serif;font-size: 17pt">Update Profile</a>
+			    </li>
+		    </ul>
+			<div class="tab-content ">
+			  <div class="tab-pane active" id="1">
+                 <div class="container">
+                        <ul class="list-group">
+                            {% for cat in catlist %}
+                                <li> <a href="/App/catelogue/{{ cat.id }}/courses/"
+                                        style="font-family: 'Roboto Slab', serif;font-size: 14pt">{{ cat.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                 </div>
+              </div>
+              <div class="tab-pane" id="2">
+                  <h4>Update</h4>
+              </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

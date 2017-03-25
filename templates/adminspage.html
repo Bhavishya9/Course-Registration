@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load staticfiles %}
 <head>
     <meta charset="UTF-8">
     <title>ADMIN</title>
+    <link href='http://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet' type='text/css'>
+    <script src="https://use.fontawesome.com/6560272edc.js"></script>
+    <link href="{% static 'css/admins_page.css'%}" rel="stylesheet">
 </head>
 <body>
-    <a href="/App/createStudent/"> Add Student</a>
-    <br>
-    <a href="/App/createProfessor/">Add Professor</a>
-    <br>
+    <div class="wrap">
+        <h1 style="color:rgba(36,22,54,0.6)">Admin Options</h1>
+  		<a href="/App/createStudent/" class="button">Add Stundent</a>
+  		<a href="/App/createProfessor/" class="button2">Add Professor</a>
+	</div>
 </body>
 </html>

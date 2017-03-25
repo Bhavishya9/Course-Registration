@@ -5,6 +5,7 @@ from django.template import loader
 from django.http import HttpResponseRedirect
 from forms import *
 from django.contrib.auth.models import Group
+from datetime import datetime,timedelta
 # Create your views here.
 
 def homepageview(request):
@@ -87,7 +88,7 @@ def newCat(request):
             catform = CatelogueForm(request.POST or None)
             if catform.is_valid():
                 data = catform.cleaned_data
-                cat = Catelogue(name=data['name'], branch=data['branch'], created_date=data['created_date'])
+                cat = Catelogue(name=data['name'], branch=data['branch'], created_date=date.today())
                 cat.save()
                 return HttpResponseRedirect('/App/catelogue/' + str(cat.id) + '/')
         return render(request, 'app/catelogue_form.html', {'form': catform})

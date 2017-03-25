@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load staticfiles %}
 <head>
     <meta charset="UTF-8">
     <title>Courses</title>
+    <link rel="stylesheet" href="{% static 'css/courses.css' %}">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Overlock|Signika" rel="stylesheet">
 </head>
-<body>
-    <h3>Courses avaialable in {{ cat.name }}</h3>
-    {% if course %}
-        <form method="post" action="" id="voteform">
-            {% csrf_token %}
-            <fieldset>
-                {% for c in course %}
-                    <p><input type="radio" name="course" id="course" value="{{ c.id }}" /></p>
-                    <label for="course{{ forloop.counter }}">{{ c.name }}</label>
+<body style=" background-image: url('{% static "images/pic5.jpg"%}');;background-size: cover;">
+    <div class="container">
+        <div class="transbox" style="margin-left: 230px">
+            <form method="post" action="" class="form-signin">
+                <h4 style="font-family: 'Overlock', cursive;font-size: 25pt;margin-bottom: 20px;"><b>Select a course</b></h4>
+                <br>
+                {% csrf_token %}
+                 {% for c in course %}
+                    <label style="font-family: 'Signika', sans-serif;font-size: 20pt;">
+                        <input type="radio" name="course" value="{{ c.id }}" style="margin-right: 10px;">{{ c.name }}</label>
+                     <div class="blankrow"></div>
                 {% endfor %}
-            <input type="submit" id="submit" value="Submit" />
-            </fieldset>
-        </form>
-    {% else %}
-        <p class="nocourse"> No votes are added!</p>
-    {% endif %}
+                <button  class="btn btn-lg btn-block" type="submit" style="background-color: black; color: white;margin-top: 20px">Submit</button>
+                <br>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load staticfiles %}
 <head>
     <meta charset="UTF-8">
     <title>New Student</title>
+    <link href="{% static 'css/add_student_and_professor.css' %}" rel="stylesheet">
 </head>
 <body>
-    <form action="" method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="add" />
-    </form>
+    <div class="login">
+        <h1>Student Details</h1>
+        <form method="post" action="">
+            {% csrf_token %}
+    	    <input type="text" name="name" placeholder="Name of Student" required="" value="{{ name }}" />
+            <input type="number" name="pin" placeholder="Pin number" required="" value="{{ pin }}" />
+            <input type="text" name="dept" placeholder="Department" required="" value="{{ dept }}" />
+            <input type="text" name="section" placeholder="Section of Student" required="" value="{{ section }}" />
+            <input type="submit" class="btn btn-block btn-large" style="background-color:white;color:black" value="Add">
+        </form>
+    </div>
 </body>
 </html>

@@ -19,7 +19,7 @@ from App import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.homepageview),
+    url(r'^$', views.homepageview,name="home"),
     url(r'App/',include('App.sub_urls')),
     url(r'^adminstrator/$',"django.contrib.auth.views.login"),
     url(r'^studentlogin/$',"django.contrib.auth.views.login"),

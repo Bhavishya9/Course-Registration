@@ -1,15 +1,31 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+    <link href="{% static 'css/course_form.css'%}" rel="stylesheet">
+    <title>Course Form</title>
 </head>
 <body>
-<form action="" method="post">
-        {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" name="save" value="Save" />
-    <input type="submit" name="sna" value="Save and add another" />
-</form>
+    <div class="login">
+        <div class="login-header">
+            <h2>Course Details</h2>
+        </div>
+       <form action="" method="post" class="login-form">
+           {% csrf_token %}
+           <h3>Name:</h3>
+           <input type="text" placeholder="Name of course" name="name" id="name" required="" value="{{ name }}"/><br>
+           <h3>Code:</h3>
+           <input type="text" placeholder="Code of course" name="code" id="code" required="" value="{{ code }}"/><br>
+           <h3>Category:</h3>
+           <input type="text" placeholder="Category of course" name="category" id="category" required="" value="{{ category }}"/><br>
+           <h3>Credits:</h3>
+           <input type="number" min="1" placeholder="Credits for course" name="credits" id="credits" required="" value="{{ credits }}"/><br>
+           <input type="submit"  name="save" value="Save" class="login-button"/>
+           <input type="submit"  name="sna" value="Save and add another" class="login-button"/>
+       </form>
+    </div>
 </body>
 </html>

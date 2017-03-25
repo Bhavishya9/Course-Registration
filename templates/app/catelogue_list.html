@@ -1,17 +1,39 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Professor Page</title>
+    <link rel="stylesheet" href="{% static 'css/student_homepage.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya|Roboto+Slab" rel="stylesheet">
 </head>
 <body>
-    <a href="/App/catelogue/new/">New Catelogue</a>
-    <h3>Catelogues</h3>
-     {%  for i in object_list %}
-       <a href="/App/catelogue/{{ i.id }}">{{ i.id }}.{{ i.name }}</a>
-         <!--<li> {{ i.id }}   -   {{ i.name }}</li> -->
-         <br />
-    {% endfor %}
-
+<div class="container">
+        <div class="top"></div>
+        <div class="header">
+            <h3 class="title">Logout</h3>
+            <div class="logo">
+                <img src="{% static 'images/gitam-logo.jpg' %}">
+            </div>
+        </div>
+        <div class="row" style="margin-top: 50px;">
+            <div class="col s4 push-s8">
+                <a href="/App/catelogue/new/" class="waves-effect waves-light btn blue darken-1"><i class="material-icons right">add</i>New Catalogue</a>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <h4 style="font-family: 'Alegreya', serif;font-size: 20pt" class=" indigo-text accent-3"><b>Catalogues</b></h4>
+            <div class="collection">
+                {%  for i in object_list %}
+                    <a href="/App/catelogue/{{ i.id }}" class="collection-item deep-purple-text darken-3"
+                       style="font-family: 'Roboto Slab', serif;font-size: 14pt"><b>{{ i.name }}</b></a>
+                    {% endfor %}
+            </div>
+        </div>
+</div>
 </body>
 </html>
